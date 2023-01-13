@@ -19,10 +19,11 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('kost_id');
             $table->foreign('kost_id')->references('id')->on('kosts')->onDelete('cascade');
-            $table->enum('status', ['Pending', 'Paid'])->default('Pending');
+            $table->enum('status', ['Unpaid', 'Pending', 'Paid', 'Rejected'])->default('Pending');
             $table->date('mulai_stay');
             $table->date('akhir_stay');
             $table->bigInteger('total_price');
+            $table->string('bukti_pembayaran');
             $table->timestamps();
         });
     }

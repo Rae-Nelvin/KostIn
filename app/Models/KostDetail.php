@@ -19,7 +19,6 @@ class KostDetail extends Model
         'jumlah_kamar',
         'jumlah_penghuni',
         'ukuran_kamar',
-        'price',
         'jatuh_tempo',
         'alamat_id',
         'favourites',

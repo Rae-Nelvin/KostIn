@@ -13,7 +13,8 @@ class Kost extends Model
     protected $fillable = [
         'name',
         'owner_id',
-        'status'
+        'status',
+        'price'
     ];
 
     /**

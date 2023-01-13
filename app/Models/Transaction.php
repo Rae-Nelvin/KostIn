@@ -16,7 +16,8 @@ class Transaction extends Model
         'status',
         'mulai_stay',
         'akhir_stay',
-        'total_price'
+        'total_price',
+        'bukti_pembayaran'
     ];
 
     /**
