@@ -221,7 +221,9 @@
             </div>
         </div>
     </section>
+@endsection
 
+@section('additionalScript')
     <script>
         $(document).ready(function () {
             $('#datatables').DataTable();

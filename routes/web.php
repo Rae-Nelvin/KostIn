@@ -128,3 +128,10 @@ Route::get('/detail-req-owner', function () {
 Route::get('/manage-user', function () {
     return view('manage-user');
 });
+
+
+
+// Contoh Penggunaan Modal
+Route::get('/modal', function () {
+    return view('contoh-modal');
+});
