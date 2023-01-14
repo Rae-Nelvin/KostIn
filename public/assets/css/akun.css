@@ -283,3 +283,57 @@
 .kos-detail-kamar-text span {
     font-weight: bold;
 }
+
+/* Tambahan */
+.owner-detail-img img {
+    object-fit: cover;
+    height: 300px;
+    width: 100% !important;
+    display: block;
+}
+
+.owner-detail-text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.owner-detail-text ul {
+    list-style: none;
+}
+
+.owner-detail-text ul li {
+    padding: .5rem 0;
+}
+
+.owner-detail-text ul li strong {
+    display: block;
+    font-size: 1.25em;
+}
+
+.accept-btn {
+    background-color: #198754;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    color: #ffffff;
+    border: 1px solid #198754;
+    border-radius: 1rem;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.layer-detail form input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: .4rem 1rem;
+    border: 1px solid #1f1f1f;
+    margin-bottom: 2rem;
+}
+
+.layer-image {
+    margin-top: 2rem;
+}
+
+.layer-image img {
+    margin: .5rem 0;
+}

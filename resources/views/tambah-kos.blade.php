@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-cover">Foto Cover Kos</label>
-                                        <input type="file" id="form-cover">
+                                        <input type="file" id="form-cover" name="form-cover">
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h3>Fasilitas</h3>

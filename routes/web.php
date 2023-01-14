@@ -63,8 +63,14 @@ Route::get('/search', function () {
     return view('search');
 });
 
+// Bisa booking kalo udh login, kalo blom lempar ke halaman login
 Route::get('/detail', function () {
     return view('detail');
+});
+
+// For User
+Route::get('/req-owner', function () {
+    return view('req-owner');
 });
 
 // For User, Owner, and Admin
@@ -98,7 +104,37 @@ Route::get('/edit-kos', function () {
     return view('edit-kos');
 });
 
+// For Owner
+Route::get('/edit-image', function () {
+    return view('edit-image');
+});
+
 // For Owner and Admin
 Route::get('/detail-kos', function () {
     return view('detail-kos');
+});
+
+// For Admin
+Route::get('/manage-req-owner', function () {
+    return view('manage-req-owner');
+});
+
+// For Admin
+Route::get('/detail-req-owner', function () {
+    return view('detail-req-owner');
+});
+
+// For Admin
+Route::get('/manage-req-kos', function () {
+    return view('manage-req-kos');
+});
+
+// For Admin
+Route::get('/detail-req-kos', function () {
+    return view('detail-req-kos');
+});
+
+// For Admin
+Route::get('/manage-user', function () {
+    return view('manage-user');
 });

@@ -76,7 +76,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -92,7 +92,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -108,7 +108,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -124,7 +124,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -140,7 +140,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -156,7 +156,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -172,7 +172,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -188,7 +188,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -204,7 +204,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -220,7 +220,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -236,7 +236,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -252,7 +252,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             <tr>
@@ -268,39 +268,7 @@
                                     <button class="default-btn">Edit Image</button>
                                     <button class="default-btn">Edit Data</button>
                                     <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>9 Square VIP Residence</td>
-                                <td>Verified</td>
-                                <td>
-                                    {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
-                                    {{--                                    <button class="default-btn">Detail</button>--}}
-                                    {{--                                    <button class="default-btn">Delete</button>--}}
-
-                                    {{-- Untuk User tampil semua --}}
-                                    <button class="default-btn">Edit Image</button>
-                                    <button class="default-btn">Edit Data</button>
-                                    <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>9 Square VIP Residence</td>
-                                <td>Verified</td>
-                                <td>
-                                    {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
-                                    {{--                                    <button class="default-btn">Detail</button>--}}
-                                    {{--                                    <button class="default-btn">Delete</button>--}}
-
-                                    {{-- Untuk User tampil semua --}}
-                                    <button class="default-btn">Edit Image</button>
-                                    <button class="default-btn">Edit Data</button>
-                                    <button class="default-btn">Detail</button>
-                                    <button class="default-btn">Delete</button>
+                                    <button class="false-btn">Delete</button>
                                 </td>
                             </tr>
                             </tbody>
