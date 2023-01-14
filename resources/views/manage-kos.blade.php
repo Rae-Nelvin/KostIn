@@ -68,7 +68,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+{{--                                    <button class="true-btn">Verify</button>--}}
 {{--                                    <button class="default-btn">Detail</button>--}}
 {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -84,7 +87,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -100,7 +106,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -116,7 +125,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -132,7 +144,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -148,7 +163,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -164,7 +182,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -180,7 +201,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -196,7 +220,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -212,7 +239,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -228,7 +258,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -244,7 +277,10 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 
@@ -260,7 +296,29 @@
                                 <td>9 Square VIP Residence</td>
                                 <td>Verified</td>
                                 <td>
+                                    {{-- Buat If--}}
                                     {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
+                                    {{--                                    <button class="default-btn">Detail</button>--}}
+                                    {{--                                    <button class="default-btn">Delete</button>--}}
+
+                                    {{-- Untuk User tampil semua --}}
+                                    <button class="default-btn">Edit Image</button>
+                                    <button class="default-btn">Edit Data</button>
+                                    <button class="default-btn">Detail</button>
+                                    <button class="false-btn">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>9 Square VIP Residence</td>
+                                <td>Verified</td>
+                                <td>
+                                    {{-- Buat If--}}
+                                    {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
+                                    {{-- Button verify cuma kalo masih pending --}}
+                                    {{--                                    <button class="true-btn">Verify</button>--}}
                                     {{--                                    <button class="default-btn">Detail</button>--}}
                                     {{--                                    <button class="default-btn">Delete</button>--}}
 

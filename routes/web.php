@@ -125,16 +125,6 @@ Route::get('/detail-req-owner', function () {
 });
 
 // For Admin
-Route::get('/manage-req-kos', function () {
-    return view('manage-req-kos');
-});
-
-// For Admin
-Route::get('/detail-req-kos', function () {
-    return view('detail-req-kos');
-});
-
-// For Admin
 Route::get('/manage-user', function () {
     return view('manage-user');
 });
