@@ -12,7 +12,7 @@
             </ul>
             <!-- Without Login -->
             <div class="btn-header">
-                <a href="{{ route('register') }}">Masuk</a>
+                <a href="{{ route('login') }}">Masuk</a>
             </div>
             <!-- With Login -->
             <!-- <div class="btn-akun">

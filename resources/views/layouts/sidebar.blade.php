@@ -21,7 +21,7 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST" class="logout">
                     @csrf
-                    <button>
+                    <button class="logout">
                         <i class='bx bxs-user-circle'></i> Logout
                     </button>
                 </form>
