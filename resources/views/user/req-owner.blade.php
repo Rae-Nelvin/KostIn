@@ -18,33 +18,7 @@
         <div class="container">
             <div class="row with-gap">
                 <div class="col-xl-3 col-lg-3 col-md-12 no-padding">
-                    <div class="akun-nav">
-                        <ul>
-                            {{-- Untuk User --}}
-                            {{--                            <li><a href="#">Manage Profile</a></li>--}}
-                            {{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-                            {{--                            <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>--}}
-                            {{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-
-                            {{-- Request kos owner hanya bisa dikirim jika data diri lengkap --}}
-                            {{-- Untuk pop up alert notif buat ngasi tau ap yang terjadi kayanya skip dlu, yang penting skema aplikasinya jalan dlu --}}
-
-                            {{-- Untuk Owner --}}
-                            <li><a href="#">Manage Kos</a></li>
-                            <li><a href="#">Manage Transaksi</a></li>
-                            <li><a href="#">Manage Profile</a></li>
-                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
-
-                            {{-- Untuk Admin --}}
-                            {{--                            <li><a href="#">Manage Request Owner</a></li>--}}
-                            {{--                            <li><a href="#">Manage Request Kos</a></li>--}}
-                            {{--                            <li><a href="#">Manage Kos</a></li>--}}
-                            {{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-                            {{--                            <li><a href="#">Manage User</a></li>--}}
-                            {{--                            <li><a href="#">Manage Profile</a></li>--}}
-                            {{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-                        </ul>
-                    </div>
+                    @include('layouts.sidebar')
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                     <div class="akun-layer">
@@ -52,14 +26,14 @@
                             <div class="back">
                                 <a href="#"><i class='bx bx-arrow-back'></i></a>
                             </div>
-                            <h1>Edit Kos</h1>
+                            <h1>Request Kos Owner & Add Kos</h1>
                         </div>
                         <div class="layer-form">
                             <form action="" method="">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-nama">Nama Kos</label>
-                                        <input type="text" placeholder="Nama Kos ..." id="form-nama" name="form-nama" value="9 Square VIP">
+                                        <input type="text" placeholder="Nama Kos ..." id="form-nama" name="form-nama">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-jenis">Jenis Kos</label>
@@ -71,15 +45,15 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-panjang">Ukuran Panjang Kos (dalam Meter)</label>
-                                        <input type="number" placeholder="Ukuran Panjang Kos ..." id="form-panjang" name="form-panjang" value="3">
+                                        <input type="number" placeholder="Ukuran Panjang Kos ..." id="form-panjang" name="form-panjang">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-lebar">Ukuran Lebar Kos (dalam Meter)</label>
-                                        <input type="number" placeholder="Ukuran Lebar Kos ..." id="form-lebar" name="form-lebar" value="4">
+                                        <input type="number" placeholder="Ukuran Lebar Kos ..." id="form-lebar" name="form-lebar">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-harga">Harga Kos Bulanan</label>
-                                        <input type="number" placeholder="Harga Kos Bulanan ..." id="form-harga" name="form-harga" value="2000000">
+                                        <input type="number" placeholder="Harga Kos Bulanan ..." id="form-harga" name="form-harga">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-cover">Foto Cover Kos</label>
@@ -89,11 +63,11 @@
                                         <h3>Fasilitas</h3>
                                         <div class="fasilitas-container">
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-kasur" name="check-kasur" value="<i class='bx bx-bed' ></i><span>Kasur</span>">
+                                                <input type="checkbox" id="check-kasur" name="check-kasur" value="<i class='bx bx-bed' ></i><span>Kasur</span>">
                                                 <label for="check-kasur"><i class='bx bx-bed' ></i><span>Kasur</span></label>
                                             </div>
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-km-dalam" name="check-km-dalam" value="<i class='bx bx-bath' ></i><span>Kamar Mandi Dalam</span>">
+                                                <input type="checkbox" id="check-km-dalam" name="check-km-dalam" value="<i class='bx bx-bath' ></i><span>Kamar Mandi Dalam</span>">
                                                 <label for="check-km-dalam"><i class='bx bx-bath' ></i><span>KM Dalam</span></label>
                                             </div>
                                             <div class="checkbox-card">
@@ -101,7 +75,7 @@
                                                 <label for="check-km-luar"><i class='bx bx-bath' ></i><span>KM Luar</span></label>
                                             </div>
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-internet" name="check-internet" value="<i class='bx bx-wifi' ></i><span>Internet</span>">
+                                                <input type="checkbox" id="check-internet" name="check-internet" value="<i class='bx bx-wifi' ></i><span>Internet</span>">
                                                 <label for="check-internet"><i class='bx bx-wifi' ></i><span>Internet</span></label>
                                             </div>
                                             <div class="checkbox-card">
@@ -109,11 +83,11 @@
                                                 <label for="check-laundry"><i class='bx bxs-washer'></i><span>Laundry</span></label>
                                             </div>
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-ac" name="check-ac" value="<i class='bx bx-wind' ></i><span>Air Conditioner</span>">
+                                                <input type="checkbox" id="check-ac" name="check-ac" value="<i class='bx bx-wind' ></i><span>Air Conditioner</span>">
                                                 <label for="check-ac"><i class='bx bx-wind' ></i><span>AC</span></label>
                                             </div>
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-lemari" name="check-lemari" value="<i class='bx bx-cabinet'></i><span>Lemari</span>">
+                                                <input type="checkbox" id="check-lemari" name="check-lemari" value="<i class='bx bx-cabinet'></i><span>Lemari</span>">
                                                 <label for="check-lemari"><i class='bx bx-cabinet'></i><span>Lemari</span></label>
                                             </div>
                                             <div class="checkbox-card">
@@ -133,30 +107,30 @@
                                                 <label for="check-dapur"><i class='bx bx-fridge'></i><span>Dapur</span></label>
                                             </div>
                                             <div class="checkbox-card">
-                                                <input type="checkbox" checked id="check-listrik" name="check-listrik" value="<i class='bx bxs-bolt-circle'></i><span>Listrik</span>">
+                                                <input type="checkbox" id="check-listrik" name="check-listrik" value="<i class='bx bxs-bolt-circle'></i><span>Listrik</span>">
                                                 <label for="check-listrik"><i class='bx bxs-bolt-circle'></i><span>Listrik</span></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-kos">Detail Kos</label>
-                                        <textarea name="form-detail-kos" id="form-detail-kos" placeholder="Detail Kos ...">La lalalalalala</textarea>
+                                        <textarea name="form-detail-kos" id="form-detail-kos" placeholder="Detail Kos ..."></textarea>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h2>Address Data</h2>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
-                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan" value="Kebon Jeruk">
+                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kota">Kota</label>
-                                        <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota" value="Jakarta Barat">
+                                        <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
                                         <select name="form-provinsi" id="form-provinsi">
-                                            <option value="Jakarta" selected>Jakarta</option>
+                                            <option value="Jakarta">Jakarta</option>
                                             <option value="Yogyakarta">Yogyakarta</option>
                                             <option value="Malang">Malang</option>
                                             <option value="Semarang">Semarang</option>
@@ -170,15 +144,15 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
-                                        <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos" value="80222">
+                                        <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos">
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-alamat">Detail Alamat</label>
-                                        <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ...">kashgfkagsfkjgasfkjgasfkj</textarea>
+                                        <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <div class="form-button">
-                                            <button>Edit Kos</button>
+                                            <button>Request Kos Owner & Add Kos</button>
                                         </div>
                                     </div>
                                 </div>

@@ -22,7 +22,7 @@ class KostDetail extends Model
         'jatuh_tempo',
         'alamat_id',
         'favourites',
-        'album_id'
+        'cover_id'
     ];
 
     /**
@@ -50,9 +50,9 @@ class KostDetail extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function album(): HasOne
+    public function cover(): HasOne
     {
-        return $this->hasOne(Album::class, 'id', 'album_id');
+        return $this->hasOne(Picture::class, 'id', 'cover_id');
     }
 
 }

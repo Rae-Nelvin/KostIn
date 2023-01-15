@@ -21,7 +21,7 @@ class KostController extends Controller
     {
         $provinces = Province::all();
         $facilities = Facility::all();
-        return view('owner.create-kost', compact('provinces', 'facilities'));
+        return view('owner.add-kost', compact('provinces', 'facilities'));
     }
 
     public function store(KostRequest $request)
@@ -66,10 +66,10 @@ class KostController extends Controller
             'jatuh_tempo' => $request->jatuh_tempo,
             'alamat_id' => $alamat->id,
             'favourites' => 0,
-            'cover_id' => $cover->id
+            'cover_id' => $album->cover_id
         ]);
 
-        $facilities = $request->facility;
+        $facilities = $request->facility_id;
         foreach ($facilities as $facility) {
             KostFacility::create([
                 'kost_id' => $kost->id,
@@ -77,7 +77,7 @@ class KostController extends Controller
             ]);
         }
 
-        return redirect('owner/kosts');
+        return redirect('owner/dashboard');
     }
 
     public function update($id)
@@ -151,7 +151,7 @@ class KostController extends Controller
             }
         }
 
-        return redirect('owner/kosts');
+        return redirect('owner/dashboard');
     }
 
     public function delete($id)
@@ -159,36 +159,35 @@ class KostController extends Controller
         $kost = Kost::find($id);
         $kost->delete();
 
-        return redirect('owner/kost');
+        return redirect('owner/dashboard');
     }
 
     public function createPictures($id)
     {
         $album = Album::where('kost_id', '=', $id)->first();
+        $pictures = Picture::where('album_id', '=', $album->id)->get();
 
-        return view('owner.add-pictures', compact('album'));
+        return view('owner.edit-image', compact('album', 'pictures'));
     }
 
     public function storePictures(Request $request)
     {
         $request->validate([
-            'image' => ['required', 'mimes: jpg, png, jpeg, gif']
+            'image' => ['required']
         ]);
 
-        $images = $request->image;
-        foreach ($images as $image) {
-            $imagePath = $image->store('/public/images/kost/' . $request->name . '/pictures');
-            $imagePath = str_replace('public/', '', $imagePath);
-    
-            $album = Album::find($request->album_id);
-            Picture::create([
-                'album_id' => $album->id,
-                'path' => $imagePath
-            ]);
-        }
+        $kost = Kost::find($request->kost_id);
+        
+        $imagePath = $request->file('image')->store('/public/images/kost/' . $kost->name . '/pictures');
+        $imagePath = str_replace('public/', '', $imagePath);
 
+        $album = Album::find($request->album_id);
+        Picture::create([
+            'album_id' => $album->id,
+            'path' => $imagePath
+        ]);
 
-        return redirect('owner/kosts');
+        return redirect()->back();
     }
 
     public function deletePicture($id)
@@ -196,6 +195,6 @@ class KostController extends Controller
         $picture = Picture::find($id);
         $picture->delete();
 
-        return redirect('owner/kosts');
+        return redirect()->back();
     }
 }

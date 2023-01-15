@@ -12,7 +12,7 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::all();
 
-        return view('admin.transactions', compact('transactions'));
+        return view('admin.manage-transactions', compact('transactions'));
     }
 
     public function detail($id)

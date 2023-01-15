@@ -29,11 +29,6 @@ use Illuminate\Support\Facades\Route;
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-// require __DIR__.'/auth.php';
-// require __DIR__.'/admin.php';
-// require __DIR__.'/owner.php';
-// require __DIR__.'/user.php';
-
 // Pages
 Route::get('/', function () {
     return view('index');
@@ -49,14 +44,6 @@ Route::get('/kampus', function () {
 
 Route::get('/about', function () {
     return view('about');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
 });
 
 Route::get('/search', function () {
@@ -78,60 +65,12 @@ Route::get('/manage-profile', function () {
     return view('manage-profile');
 });
 
-// For User, Owner, and Admin
-// Yang bedain cuma kalo User cuma bisa liat list transaksi yang dia buat
-// Kalo Owner cuma bisa liat list transaksi yang ngarah ke kos yang dia punya
-// Kalo Admin bisa liat semua transaksi yang terjadi
-// Sengaja ga ngasi action, takut ga cukup waktu
-Route::get('/manage-transaction', function () {
-    return view('manage-transaction');
-});
-
-// For Owner and Admin
-// Owner bisa liat semua kos yang dia punya + nambahin data kos
-// Admin bisa liat semua kos yang ada dan ga bisa nambahin data kos
-Route::get('/manage-kos', function () {
-    return view('manage-kos');
-});
-
-// For Owner
-Route::get('/tambah-kos', function () {
-    return view('tambah-kos');
-});
-
-// For Owner
-Route::get('/edit-kos', function () {
-    return view('edit-kos');
-});
-
-// For Owner
-Route::get('/edit-image', function () {
-    return view('edit-image');
-});
-
-// For Owner and Admin
-Route::get('/detail-kos', function () {
-    return view('detail-kos');
-});
-
-// For Admin
-Route::get('/manage-req-owner', function () {
-    return view('manage-req-owner');
-});
-
-// For Admin
-Route::get('/detail-req-owner', function () {
-    return view('detail-req-owner');
-});
-
-// For Admin
-Route::get('/manage-user', function () {
-    return view('manage-user');
-});
-
-
-
 // Contoh Penggunaan Modal
 Route::get('/modal', function () {
     return view('contoh-modal');
 });
+
+require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+require __DIR__.'/owner.php';
+require __DIR__.'/user.php';

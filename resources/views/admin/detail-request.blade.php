@@ -18,33 +18,7 @@
         <div class="container">
             <div class="row with-gap">
                 <div class="col-xl-3 col-lg-3 col-md-12 no-padding">
-                    <div class="akun-nav">
-                        <ul>
-                            {{-- Untuk User --}}
-                            {{--                            <li><a href="#">Manage Profile</a></li>--}}
-                            {{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-                            {{--                            <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>--}}
-                            {{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-
-                            {{-- Request kos owner hanya bisa dikirim jika data diri lengkap --}}
-                            {{-- Untuk pop up alert notif buat ngasi tau ap yang terjadi kayanya skip dlu, yang penting skema aplikasinya jalan dlu --}}
-
-                            {{-- Untuk Owner --}}
-{{--                            <li><a href="#">Manage Kos</a></li>--}}
-{{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-{{--                            <li><a href="#">Manage Profile</a></li>--}}
-{{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-
-                            {{-- Untuk Admin --}}
-                            <li><a href="#">Manage Request Owner</a></li>
-                            <li><a href="#">Manage Request Kos</a></li>
-                            <li><a href="#">Manage Kos</a></li>
-                            <li><a href="#">Manage Transaksi</a></li>
-                            <li><a href="#">Manage User</a></li>
-                            <li><a href="#">Manage Profile</a></li>
-                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
-                        </ul>
-                    </div>
+                    @include('layouts.sidebar')
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                     <div class="akun-layer">
@@ -65,9 +39,9 @@
                                     <div class="owner-detail-text">
                                         <ul>
                                             {{-- Nama User --}}
-                                            <li>Nama : <strong>Leo leo</strong></li>
+                                            <li>Nama : <strong>{{ $request->user->name }}</strong></li>
                                             {{-- Email User --}}
-                                            <li>Email : <strong>leo@gmail.com</strong></li>
+                                            <li>Email : <strong>{{ $request->user->email }}</strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,14 +49,14 @@
                                     <div class="owner-detail-text">
                                         <ul>
                                             {{-- Phone User --}}
-                                            <li>Phone : <strong>081246868369</strong></li>
+                                            <li>Phone : <strong>{{ $request->user->phone }}</strong></li>
                                             {{-- Kota User --}}
                                             <li>Kota : <strong>Jakarta</strong></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 no-padding">
-                                    <button class="accept-btn">Accept Request</button>
+                                    <a href="{{ route('admin.accept-request', $request->id) }}"><button class="accept-btn">Accept Request</button></a>
                                 </div>
                             </div>
                         </div>

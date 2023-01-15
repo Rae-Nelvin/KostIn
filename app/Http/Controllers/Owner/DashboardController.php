@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $kost = Kost::where('owner_id', '=', Auth::user()->id)->paginate(5);
-        return view('owner.dashboard', compact('kost'));
+        $kosts = Kost::where('owner_id', '=', Auth::user()->id)->paginate(5);
+        return view('owner.dashboard', compact('kosts'));
     }
 }

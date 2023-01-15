@@ -25,7 +25,7 @@ class KostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:'. Kost::class],
+            'name' => ['required'],
             'description' => ['required'],
             'tipe_kost' => ['required', Rule::in(['Male', 'Female', 'Campur'])],
             'jumlah_kamar' => ['required', 'numeric', 'min: 1'],
@@ -36,10 +36,10 @@ class KostRequest extends FormRequest
             'alamat' => ['required'],
             'kecamatan' => ['required'],
             'kabupaten' => ['required'],
-            'provinsi_id' => ['required', 'exists:provinces'],
+            'provinsi_id' => ['required', 'exists:provinces,id'],
             'kode_pos' => ['required', 'numeric', 'min: 1'],
-            'facility_id' => ['required', 'exists:facilities'],
-            'image' => ['required', 'mimes: jpeg, jpg, png, gif']
+            'facility_id' => ['required'],
+            'image' => ['required']
         ];
     }
 }

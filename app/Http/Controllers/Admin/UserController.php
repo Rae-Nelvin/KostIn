@@ -10,8 +10,16 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role_id', '!=', 1)->get();
 
-        return view('admin.users', compact('users'));
+        return view('admin.manage-users', compact('users'));
+    }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('admin/manage-users');
     }
 }

@@ -6,20 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\KostDetail;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        $all_transactions = Transaction::all();
-        $transactions[] = null;
-        $i = 0;
-        foreach ($all_transactions as $transaction) {
-            $transactions[$i] = $transaction;
-            $i++;
-        }
+        $transactions= Transaction::query()
+                            ->join('kosts', 'transactions.kost_id', '=', 'kosts.id')
+                            ->join('users', 'transactions.user_id', '=', 'users.id')
+                            ->where('kosts.owner_id', '=', Auth::user()->id)
+                            ->select('transactions.*', 'kosts.*')
+                            ->get();
 
-        return view('owner.transactions', compact('transactions'));
+        return view('owner.manage-transactions', compact('transactions'));
     }
 
     public function detail($id)
@@ -38,7 +38,7 @@ class TransactionController extends Controller
         $kost = KostDetail::where('kost_id', '=', $transaction->kost_id);
         $kost->jumlah_penghuni = $kost->jumlah_penghuni + 1;
 
-        return redirect('owner/transactions');
+        return redirect('owner/manage-transactions');
     }
 
     public function rejectTransaction($id)
@@ -47,6 +47,6 @@ class TransactionController extends Controller
         $transaction->status = 'Rejected';
         $transaction->save();
 
-        return redirect('owner/transactions');
+        return redirect('owner/manage-transactions');
     }
 }

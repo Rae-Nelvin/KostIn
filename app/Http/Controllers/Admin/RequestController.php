@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Request;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
     public function index()
     {
-        $requests = Request::orderBy('created_at', 'ASC')->get();
+        $requests = Request::where('status', '=', 'Pending')->orderBy('created_at', 'ASC')->get();
 
-        return view('admin.requests', compact('requests'));
+        return view('admin.manage-requests', compact('requests'));
     }
 
     public function accept($id)
@@ -24,7 +24,7 @@ class RequestController extends Controller
         $user->role_id = 2;
         $user->save();
 
-        return redirect('admin.requests');
+        return redirect('admin/manage-requests');
     }
 
     public function reject($id)
@@ -33,6 +33,13 @@ class RequestController extends Controller
         $request->status = 'Rejected';
         $request->save();
 
-        return redirect('admin.requests');
+        return redirect('admin/manage-requests');
+    }
+
+    public function detail($id)
+    {
+        $request = Request::find($id);
+
+        return view('admin.detail-request', compact('request'));
     }
 }
