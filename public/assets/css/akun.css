@@ -327,7 +327,6 @@
     width: 100%;
     padding: .4rem 1rem;
     border: 1px solid #1f1f1f;
-    margin-bottom: 2rem;
 }
 
 .layer-image {
@@ -336,4 +335,8 @@
 
 .layer-image img {
     margin: .5rem 0;
+}
+
+.mt-1 {
+    margin-top: 1rem;
 }

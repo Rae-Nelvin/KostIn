@@ -46,7 +46,7 @@ header {
     border-radius: .5rem;
     padding: .75rem 2rem;
     font-size: 1.25em;
-    margin: 1rem 0;
+    margin-top: 1rem;
 }
 
 .login-form button {
@@ -59,6 +59,7 @@ header {
     font-size: 1.25em;
     border-radius: 1rem;
     color: #fff;
+    margin-top: 1rem;
 }
 
 .login-addition {
