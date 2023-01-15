@@ -35,6 +35,9 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-nama">Nama Kos</label>
                                         <input type="text" placeholder="Nama Kos ..." id="form-nama" name="name" value="{{ $kost->name }}">
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-jenis">Jenis Kos</label>
@@ -44,30 +47,51 @@
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
+                                        @error('tipe_kost')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-panjang">Ukuran Kamar (dalam Meter X Meter)</label>
                                         <input type="text" placeholder="Contoh : 4 x 5 M" id="form-panjang" name="ukuran_kamar" value="{{ $kost->detail->ukuran_kamar }}">
+                                        @error('ukuran_kamar')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kamar">Kamar Kost</label>
                                         <input type="number" placeholder="Jumlah Kamar Kost ..." id="form-harga" name="jumlah_kamar" min="1" value="{{ $kost->detail->jumlah_kamar }}">
+                                        @error('jumlah_kamar')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-penghuni">Penghuni Sekarang</label>
                                         <input type="number" placeholder="Jumlah Penghuni Sekarang ..." id="form-harga" name="jumlah_penghuni" value="{{ $kost->detail->jumlah_penghuni }}">
+                                        @error('jumlah_penghuni')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-harga">Harga Kos Bulanan</label>
                                         <input type="number" placeholder="Harga Kos Bulanan ..." id="form-harga" name="price" min="1000" value="{{ $kost->price }}">
+                                        @error('price')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-cover">Foto Cover Kos</label>
                                         <input type="file" id="form-cover" name="image" value="{{ $kost->detail->cover->path }}">
+                                        @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-date">Jatuh Tempo</label>
                                         <input type="text" placeholder="Contoh : Tanggal 5 " id="form-harga" name="jatuh_tempo" value="{{ $kost->detail->jatuh_tempo }}">
+                                        @error('jatuh_tempo')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h3>Fasilitas</h3>
@@ -79,11 +103,17 @@
                                                 </div>
                                             @endforeach
                                         </div>
+                                        @error('facility_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-kos">Detail Kos</label>
                                         <input type="hidden" name="description" value="{{ $kost->detail->description }}">
                                         <textarea name="description" id="form-detail-kos" placeholder="Detail Kos ...">{{ $kost->detail->description }}</textarea>
+                                        @error('description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h2>Address Data</h2>
@@ -91,10 +121,16 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
                                         <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="kecamatan" value="{{ $kost->detail->alamat->kecamatan }}">
+                                        @error('kecamatan')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kabupaten">Kabupaten</label>
                                         <input type="text" placeholder="Kabupaten ..." id="form-kecamatan" name="kabupaten" value="{{ $kost->detail->alamat->kabupaten }}">
+                                        @error('kabupaten')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
@@ -104,15 +140,24 @@
                                                 <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('provinsi_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
                                         <input type="number" placeholder="Kode Pos ..." id="form-kode-pos" name="kode_pos" value="{{ $kost->detail->alamat->kode_pos }}">
+                                        @error('kode_pos')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-alamat">Detail Alamat</label>
                                         <input type="hidden" name="alamat" value="{{ $kost->detail->alamat->alamat }}">
                                         <textarea name="alamat" id="form-detail-alamat" placeholder="Detail Alamat ...">{{ $kost->detail->alamat->alamat }}</textarea>
+                                        @error('alamat')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <div class="form-button">

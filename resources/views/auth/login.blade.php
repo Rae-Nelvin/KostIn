@@ -19,7 +19,13 @@
                     @csrf
                     {{-- Sementara error message ga ush dlu kayanya --}}
                     <input type="email" name="email" id="email" placeholder="Email ...">
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <input type="password" name="password" id="password" placeholder="Password ...">
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <button>Sign In</button>
                 </form>
                 <div class="login-addition">

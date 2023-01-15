@@ -37,6 +37,9 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 no-padding">
                                         <label for="form-image">Add Image</label>
                                         <input type="file" id="form-image" name="image">
+                                        @error('image')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 no-padding">
                                         <button class="accept-btn">Add Image</button>

@@ -16,9 +16,18 @@
                 <h1>Register</h1>
                 <form action="{{ route('register') }}" method="POST">
                     @csrf
-                    <input type="email" name="email" id="email" placeholder="Email ...">
-                    <input type="password" name="password" id="password" placeholder="Password ...">
                     <input type="text" name="name" id="name" placeholder="Nama ...">
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                    <input type="email" name="email" id="email" placeholder="Email ...">
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                    <input type="password" name="password" id="password" placeholder="Password ...">
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     <button>Sign Up</button>
                 </form>
                 <div class="login-addition">
