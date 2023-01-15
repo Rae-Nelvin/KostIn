@@ -33,8 +33,8 @@ class UserSeeder extends Seeder
         AlamatDetail::create([
             'alamat' => 'Jl. Cendrawasih Raya No. 17, Pesanggrahan, DKI Jakarta, Indonesia',
             'kecamatan' => 'Pesanggrahan',
-            'kabupaten' => 'Pesanggrahan',
-            'provinsi_id' => 1,
+            'kabupaten_id' => 1,
+            'provinsi' => 'DKI Jakarta',
             'kode_pos' => '61321'
         ]);
 
@@ -50,14 +50,14 @@ class UserSeeder extends Seeder
         AlamatDetail::create([
             'alamat' => 'Jl. Cendrawasih Raya No. 17, Pesanggrahan, DKI Jakarta, Indonesia',
             'kecamatan' => 'Pesanggrahan',
-            'kabupaten' => 'Pesanggrahan',
-            'provinsi_id' => 1,
+            'provinsi' => 'DKI Jakarta',
+            'kabupaten_id' => 1,
             'kode_pos' => '61321'
         ]);
 
         User::create([
-            'name' => 'Owner 1',
-            'email' => 'owner@owner.com',
+            'name' => 'Owner Jakarta',
+            'email' => 'owner-jakarta@owner.com',
             'password' => Hash::make('owner123'),
             'alamat_id' => 2,
             'phone' => '081231231231',
@@ -67,8 +67,8 @@ class UserSeeder extends Seeder
         AlamatDetail::create([
             'alamat' => 'Jl. Cendrawasih Raya No. 17, Pesanggrahan, DKI Jakarta, Indonesia',
             'kecamatan' => 'Pesanggrahan',
-            'kabupaten' => 'Pesanggrahan',
-            'provinsi_id' => 1,
+            'kabupaten_id' => 1,
+            'provinsi' => 'DKI Jakarta',
             'kode_pos' => '61321'
         ]);
 

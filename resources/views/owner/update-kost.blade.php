@@ -127,20 +127,27 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kabupaten">Kabupaten</label>
-                                        <input type="text" placeholder="Kabupaten ..." id="form-kecamatan" name="kabupaten" value="{{ $kost->detail->alamat->kabupaten }}">
-                                        @error('kabupaten')
+                                        <select name="kabupaten_id" id="form-kabupaten">
+                                            <option value="{{ $kost->detail->alamat->kabupaten->id }}">{{ $kost->detail->alamat->kabupaten->name }}</option>
+                                            @foreach ($kabupatens as $kabupaten)
+                                                <option value="{{ $kabupaten->id }}">{{ $kabupaten->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('kabupaten_id')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
-                                        <select name="provinsi_id" id="form-provinsi">
-                                            <option value="{{ $kost->detail->alamat->provinsi->id }}">{{ $kost->detail->alamat->provinsi->name }}</option>
-                                            @foreach ($provinces as $provinsi)
-                                                <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
-                                            @endforeach
+                                        <select name="provinsi" id="form-provinsi">
+                                            <option value="{{ $kost->detail->alamat->provinsi }}">{{ $kost->detail->alamat->provinsi }}</option>
+                                            <option value="DKI Jakarta">DKI Jakarta</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="Jawa Tengah">Jawa Tengah</option>
+                                            <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                            <option value="Jawa Timur">Jawa Timur</option>
                                         </select>
-                                        @error('provinsi_id')
+                                        @error('provinsi')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

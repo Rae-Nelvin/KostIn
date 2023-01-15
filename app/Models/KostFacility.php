@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class KostFacility extends Model
 {
@@ -28,12 +28,12 @@ class KostFacility extends Model
     }
 
     /**
-     * Get all of the facilities for the KostFacility
+     * Get the facility associated with the KostFacility
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function facilities(): HasMany
+    public function facility(): HasOne
     {
-        return $this->hasMany(Facility::class, 'id', 'facility_id');
+        return $this->hasOne(Facility::class, 'id', 'facility_id');
     }
 }

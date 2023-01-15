@@ -14,8 +14,8 @@ class AlamatDetail extends Model
     protected $fillable = [
         'alamat',
         'kecamatan',
-        'kabupaten',
-        'provinsi_id',
+        'kabupaten_id',
+        'provinsi',
         'kode_pos'
     ];
 
@@ -24,8 +24,8 @@ class AlamatDetail extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function provinsi(): HasOne
+    public function kabupaten(): HasOne
     {
-        return $this->hasOne(Province::class, 'id', 'provinsi_id');
+        return $this->hasOne(Kabupaten::class, 'id', 'kabupaten_id');
     }
 }

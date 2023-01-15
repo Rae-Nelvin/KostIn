@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Pages
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [GuestController::class, 'index'])->name('welcome');
+Route::get('/kost-detail/{id}', [GuestController::class, 'detail'])->name('kost-detail');
 
 Route::get('/area', function () {
     return view('area');
@@ -51,9 +51,6 @@ Route::get('/search', function () {
 });
 
 // Bisa booking kalo udh login, kalo blom lempar ke halaman login
-Route::get('/detail', function () {
-    return view('detail');
-});
 
 // For User
 Route::get('/req-owner', function () {

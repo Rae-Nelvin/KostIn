@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('alamat');
             $table->string('kecamatan');
-            $table->string('kabupaten');
-            $table->unsignedBigInteger('provinsi_id');
-            $table->foreign('provinsi_id')->references('id')->on('provinces')->onDelete('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('kabupaten_id');
+            $table->foreign('kabupaten_id')->references('id')->on('kabupatens')->onDelete('cascade')->onDelete('cascade');
+            $table->string('provinsi');
             $table->integer('kode_pos');
         });
     }

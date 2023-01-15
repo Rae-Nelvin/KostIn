@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Province extends Model
+class Kabupaten extends Model
 {
     use HasFactory;
     public $timestamps = false;
@@ -17,7 +17,7 @@ class Province extends Model
     ];
 
     /**
-     * Get the picture associated with the Province
+     * Get the picture associated with the Kabupaten
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

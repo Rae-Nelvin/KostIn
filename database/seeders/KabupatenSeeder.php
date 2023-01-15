@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kabupaten;
 use App\Models\Picture;
-use App\Models\Province;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProvinceSeeder extends Seeder
+class kabupatenSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,55 +17,55 @@ class ProvinceSeeder extends Seeder
     public function run()
     {
         $picture = Picture::create([
-            'path' => 'images/province/Jakarta.jpg'
+            'path' => 'images/kabupaten/Jakarta.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'DKI Jakarta',
             'picture_id' => $picture->id
         ]);
 
         $picture = Picture::create([
-            'path' => 'images/province/Surabaya.jpg'
+            'path' => 'images/kabupaten/Surabaya.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'Surabaya',
             'picture_id' => $picture->id
         ]);
 
         $picture = Picture::create([
-            'path' => 'images/province/Semarang.jpg'
+            'path' => 'images/kabupaten/Semarang.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'Semarang',
             'picture_id' => $picture->id
         ]);
 
         $picture = Picture::create([
-            'path' => 'images/province/Malang.jpg'
+            'path' => 'images/kabupaten/Malang.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'Malang',
             'picture_id' => $picture->id
         ]);
 
         $picture = Picture::create([
-            'path' => 'images/province/Bandung.jpg'
+            'path' => 'images/kabupaten/Bandung.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'Bandung',
             'picture_id' => $picture->id
         ]);
 
         $picture = Picture::create([
-            'path' => 'images/province/Jogjakarta.jpg'
+            'path' => 'images/kabupaten/Jogjakarta.jpg'
         ]);
 
-        Province::create([
+        Kabupaten::create([
             'name' => 'DI Jogjakarta',
             'picture_id' => $picture->id
         ]);

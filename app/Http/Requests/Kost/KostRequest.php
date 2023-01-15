@@ -35,8 +35,8 @@ class KostRequest extends FormRequest
             'jatuh_tempo' => ['required'],
             'alamat' => ['required'],
             'kecamatan' => ['required'],
-            'kabupaten' => ['required'],
-            'provinsi_id' => ['required', 'exists:provinces,id'],
+            'kabupaten_id' => ['required', 'exists:kabupatens,id'],
+            'provinsi' => ['required'],
             'kode_pos' => ['required', 'numeric', 'min: 1'],
             'facility_id' => ['required'],
             'image' => ['required']

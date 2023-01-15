@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Kost extends Model
@@ -36,5 +37,15 @@ class Kost extends Model
     public function detail(): HasOne
     {
         return $this->hasOne(KostDetail::class, 'kost_id', 'id');
+    }
+
+    /**
+     * Get all of the facilities for the Kost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function facilities(): HasMany
+    {
+        return $this->hasMany(KostFacility::class, 'kost_id', 'id');
     }
 }

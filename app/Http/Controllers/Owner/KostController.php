@@ -11,7 +11,7 @@ use App\Models\Kost;
 use App\Models\KostDetail;
 use App\Models\KostFacility;
 use App\Models\Picture;
-use App\Models\Province;
+use App\Models\Kabupaten;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -19,20 +19,20 @@ class KostController extends Controller
 {
     public function create()
     {
-        $provinces = Province::all();
+        $kabupatens = Kabupaten::all();
         $facilities = Facility::all();
-        return view('owner.add-kost', compact('provinces', 'facilities'));
+        return view('owner.add-kost', compact('kabupatens', 'facilities'));
     }
 
     public function store(KostRequest $request)
     {
-        $provinsi_id = Province::find($request->provinsi_id);
+        $kabupaten_id = Kabupaten::find($request->kabupaten_id);
 
         $alamat = AlamatDetail::create([
             'alamat' => $request->alamat,
             'kecamatan' => $request->kecamatan,
-            'kabupaten' => $request->kabupaten,
-            'provinsi_id' => $provinsi_id->id,
+            'kabupaten_id' => $kabupaten_id->id,
+            'provinsi' => $request->provinsi,
             'kode_pos' => $request->kode_pos
         ]);
 
@@ -83,19 +83,19 @@ class KostController extends Controller
     public function update($id)
     {
         $kost = Kost::find($id);
-        $provinces = Province::all();
+        $kabupatens = Kabupaten::all();
         $facilities = Facility::all();
-        return view('owner.update-kost', compact('kost', 'provinces', 'facilities'));
+        return view('owner.update-kost', compact('kost', 'kabupatens', 'facilities'));
     }
 
     public function storeUpdate(KostRequest $request)
     {
-        $provinsi_id = Province::find($request->provinsi_id);
+        $kabupaten_id = Kabupaten::find($request->kabupaten_id);
         $alamat = AlamatDetail::where('id', '=', $request->alamat_id)->update([
             'alamat' => $request->alamat,
             'kecamatan' => $request->kecamatan,
-            'kabupaten' => $request->kabupaten,
-            'provinsi_id' => $provinsi_id->id,
+            'kabupaten_id' => $kabupaten_id->id,
+            'provinsi' => $request->provinsi,
             'kode_pos' => $request->kode_pos
         ]);
         $alamat->save();

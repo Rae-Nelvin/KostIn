@@ -11,8 +11,8 @@
                 <li><a href="#">Manage User</a></li>
             @elseif (Auth::user()->role_id == 2)
                 {{-- Untuk Owner --}}
-                <li><a href="#">Manage Kos</a></li>
-                <li><a href="#">Manage Transaksi</a></li>
+                <li><a href="{{ route('owner.dashboard') }}">Manage Kos</a></li>
+                <li><a href="{{ route('owner.manage-transactions') }}">Manage Transaksi</a></li>
             @else
                 <li><a href="#">Manage Transaksi</a></li>
                 <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
