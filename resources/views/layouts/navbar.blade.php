@@ -6,9 +6,9 @@
             </div>
             <ul>
                 <li><a href="/">Beranda</a></li>
-                <li><a href="#">Area</a></li>
-                <li><a href="#">Kampus</a></li>
-                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="/area">Area</a></li>
+                <li><a href="/kampus">Kampus</a></li>
+                <li><a href="/about">Tentang Kami</a></li>
             </ul>
             @auth
                 <!-- With Login -->
@@ -18,7 +18,7 @@
             @else
                 <!-- Without Login -->
                 <div class="btn-header">
-                    <a href="{{ route('register') }}">Masuk</a>
+                    <a href="{{ route('login') }}">Masuk</a>
                 </div>
             @endauth
         </nav>

@@ -4,6 +4,7 @@
         @auth
             @if (Auth::user()->role_id == 1)
                 {{-- Untuk Admin --}}
+                <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Manage Request Owner</a></li>
                 <li><a href="#">Manage Request Kos</a></li>
                 <li><a href="#">Manage Kos</a></li>
