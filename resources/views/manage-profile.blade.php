@@ -76,21 +76,29 @@
                                         <label for="form-name">Name</label>
                                         {{-- Nama Akun, isi value kalau udh ada data --}}
                                         <input type="text" placeholder="Name ..." value="Leo Leo" id="form-name" name="form-name">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-phone">Phone</label>
                                         {{-- Phone Akun, isi value kalau udh ada data --}}
                                         <input type="text" placeholder="Phone ..." id="form-phone" name="form-phone">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
                                         {{-- Kecamatan Akun, isi value kalau udh ada data --}}
                                         <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kota">Kota</label>
                                         {{-- Kota Akun, isi value kalau udh ada data --}}
                                         <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
@@ -107,16 +115,22 @@
                                             <option value="Tangerang">Tangerang</option>
                                             <option value="Palembang">Palembang</option>
                                         </select>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
                                         {{-- Kode Pos Akun, isi value kalau udh ada data --}}
                                         <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-alamat">Detail Alamat</label>
                                         {{-- Detail Alamat Akun, isi value kalau udh ada data --}}
                                         <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <div class="form-button">

@@ -60,6 +60,8 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-nama">Nama Kos</label>
                                         <input type="text" placeholder="Nama Kos ..." id="form-nama" name="form-nama">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-jenis">Jenis Kos</label>
@@ -68,22 +70,32 @@
                                             <option value="Putra">Putra</option>
                                             <option value="Putri">Putri</option>
                                         </select>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-panjang">Ukuran Panjang Kos (dalam Meter)</label>
                                         <input type="number" placeholder="Ukuran Panjang Kos ..." id="form-panjang" name="form-panjang">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-lebar">Ukuran Lebar Kos (dalam Meter)</label>
                                         <input type="number" placeholder="Ukuran Lebar Kos ..." id="form-lebar" name="form-lebar">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-harga">Harga Kos Bulanan</label>
                                         <input type="number" placeholder="Harga Kos Bulanan ..." id="form-harga" name="form-harga">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-cover">Foto Cover Kos</label>
                                         <input type="file" id="form-cover" name="form-cover">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h3>Fasilitas</h3>
@@ -137,10 +149,14 @@
                                                 <label for="check-listrik"><i class='bx bxs-bolt-circle'></i><span>Listrik</span></label>
                                             </div>
                                         </div>
+                                        {{-- Error Message --}}
+                                        <div class="text-danger" align="center">Ini error message</div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-kos">Detail Kos</label>
                                         <textarea name="form-detail-kos" id="form-detail-kos" placeholder="Detail Kos ..."></textarea>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h2>Address Data</h2>
@@ -148,10 +164,14 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
                                         <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kota">Kota</label>
                                         <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
@@ -167,14 +187,20 @@
                                             <option value="Tangerang">Tangerang</option>
                                             <option value="Palembang">Palembang</option>
                                         </select>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
                                         <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos">
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-alamat">Detail Alamat</label>
                                         <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
+                                        {{-- Error Message --}}
+                                        <span class="text-danger">Ini error message</span>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <div class="form-button">

@@ -18,7 +18,11 @@
                 <form action="" method="">
                     {{-- Sementara error message ga ush dlu kayanya --}}
                     <input type="email" name="email" id="email" placeholder="Email ...">
+                    {{-- Error Message --}}
+                    <span class="text-danger">Ini error message</span>
                     <input type="password" name="password" id="password" placeholder="Password ...">
+                    {{-- Error Message --}}
+                    <span class="text-danger">Ini error message</span>
                     <button>Sign In</button>
                 </form>
                 <div class="login-addition">
