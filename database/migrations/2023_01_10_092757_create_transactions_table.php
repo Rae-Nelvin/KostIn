@@ -23,7 +23,8 @@ return new class extends Migration
             $table->date('mulai_stay');
             $table->date('akhir_stay');
             $table->bigInteger('total_price');
-            $table->string('bukti_pembayaran');
+            $table->unsignedBigInteger('bukti_pembayaran')->nullable();
+            $table->foreign('bukti_pembayaran')->references('id')->on('pictures')->onDelete('cascade');
             $table->timestamps();
         });
     }

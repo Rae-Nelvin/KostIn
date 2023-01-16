@@ -15,8 +15,9 @@ class TransactionController extends Controller
         $transactions= Transaction::query()
                             ->join('kosts', 'transactions.kost_id', '=', 'kosts.id')
                             ->join('users', 'transactions.user_id', '=', 'users.id')
+                            ->join('pictures', 'transactions.bukti_pembayaran', '=', 'pictures.id')
                             ->where('kosts.owner_id', '=', Auth::user()->id)
-                            ->select('transactions.*', 'kosts.*')
+                            ->select('transactions.*', 'pictures.path as path')
                             ->get();
 
         return view('owner.manage-transactions', compact('transactions'));
@@ -29,19 +30,19 @@ class TransactionController extends Controller
         return view('owner.transasction-detail', compact('trasnaction'));
     }
 
-    public function acceptTransaction($id)
+    public function accept($id)
     {
         $transaction = Transaction::find($id);
         $transaction->status = 'Paid';
         $transaction->save();
         
-        $kost = KostDetail::where('kost_id', '=', $transaction->kost_id);
+        $kost = KostDetail::where('kost_id', '=', $transaction->kost_id)->first();
         $kost->jumlah_penghuni = $kost->jumlah_penghuni + 1;
 
         return redirect('owner/manage-transactions');
     }
 
-    public function rejectTransaction($id)
+    public function reject($id)
     {
         $transaction = Transaction::find($id);
         $transaction->status = 'Rejected';

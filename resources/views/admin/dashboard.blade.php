@@ -27,27 +27,15 @@
                         </div>
                         <div class="value-container">
                             <div class="value-card">
-                                <strong>100</strong>
+                                <strong>{{ $kosts }}</strong>
                                 <span>Jumlah Kos</span>
                             </div>
                             <div class="value-card">
-                                <strong>12</strong>
+                                <strong>{{ $users }}</strong>
                                 <span>Jumlah User</span>
                             </div>
                             <div class="value-card">
-                                <strong>1000</strong>
-                                <span>Jumlah Transaksi</span>
-                            </div>
-                            <div class="value-card">
-                                <strong>100</strong>
-                                <span>Jumlah Kos</span>
-                            </div>
-                            <div class="value-card">
-                                <strong>12</strong>
-                                <span>Jumlah User</span>
-                            </div>
-                            <div class="value-card">
-                                <strong>1000</strong>
+                                <strong>{{ $transactions }}</strong>
                                 <span>Jumlah Transaksi</span>
                             </div>
                         </div>

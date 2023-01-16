@@ -33,10 +33,10 @@ use Illuminate\Support\Facades\Route;
 // Pages
 Route::get('/', [GuestController::class, 'index'])->name('welcome');
 Route::get('/kost-detail/{id}', [GuestController::class, 'detail'])->name('kost-detail');
-
-Route::get('/area', function () {
-    return view('area');
-});
+Route::get('/area', [GuestController::class, 'area'])->name('area');
+Route::post('/search', [GuestController::class, 'search'])->name('search');
+Route::get('/manage-profile', [ProfileController::class, 'create'])->middleware('auth')->name('manage-profile');
+Route::post('/manage-profile', [ProfileController::class, 'store'])->middleware('auth');
 
 Route::get('/area-kos', function () {
     return view('area-kos');
@@ -50,20 +50,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/search', function () {
-    return view('search');
-});
-
 // Bisa booking kalo udh login, kalo blom lempar ke halaman login
 
 // For User
 Route::get('/req-owner', function () {
     return view('req-owner');
-});
-
-// For User, Owner, and Admin
-Route::get('/manage-profile', function () {
-    return view('manage-profile');
 });
 
 // Contoh Penggunaan Modal

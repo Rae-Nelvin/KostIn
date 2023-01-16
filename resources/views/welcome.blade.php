@@ -32,7 +32,8 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="banner-search">
                         {{-- Form to search page --}}
-                        <form action="" method="">
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
                             <div>
                                 <label for="name">Nama Kos</label>
                                 <input type="text" placeholder="Nama Kos" id="name" name="name">
@@ -40,13 +41,13 @@
                             <div>
                                 {{-- Cek nama kota --}}
                                 <label for="area">Area</label>
-                                <input type="text" placeholder="Area" id="area" name="area">
+                                <input type="text" placeholder="Area" id="area" name="kabupaten">
                             </div>
                             <div>
                                 <label for="minPrice">Harga</label>
                                 <div class="harga">
-                                    <input type="text" placeholder="Minimal" id="minPrice" name="minPrice">
-                                    <input type="text" placeholder="Maksimal" id="maxPrice" name="maxPrice">
+                                    <input type="number" placeholder="Minimal" id="minPrice" name="minimum_price">
+                                    <input type="number" placeholder="Maksimal" id="maxPrice" name="maximum_price">
                                 </div>
                             </div>
                             <div>

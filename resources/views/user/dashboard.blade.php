@@ -29,7 +29,7 @@
                             <i class='bx bx-building-house'></i>
                             <div>
                                 <h2>Punya <b>Kos</b> yang ingin dipasarkan?</h2>
-                                <a href="#">Daftar Jadi Kos Owner</a>
+                                <a href="{{ route('user.become-owner') }}">Daftar Jadi Kos Owner</a>
                             </div>
                         </div>
                         <div class="layer-fav">

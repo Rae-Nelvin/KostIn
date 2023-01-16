@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\AlamatDetail;
+use App\Models\Kabupaten;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -21,7 +22,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $kabupatens = Kabupaten::all();
+
+        return view('auth.register', compact('kabupatens'));
     }
 
     /**
@@ -34,31 +37,28 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required' ],
-            // 'confirmed', Rules\Password::defaults()
-            // 'alamat' => ['required'],
-            // 'kecamatan' => ['required'],
-            // 'kabupaten' => ['required'],
-            // 'provinsi_id' => ['required', 'exists:provinces'],
-            // 'kode_pos' => ['required', 'numeric'],
-            // 'phone' => ['required'],
+            'password' => ['required'],
+            'alamat' => ['required'],
+            'kecamatan' => ['required'],
+            'kabupaten_id' => ['required', 'exists:kabupatens,id'],
+            'provinsi' => ['required'],
+            'kode_pos' => ['required', 'numeric'],
+            'phone' => ['required'],
         ]);
 
-        // $kabupaten_id = Kabupaten::find($request->kabupaten_id);
-
-        // $alamat = AlamatDetail::create([
-            // 'alamat' => $request->alamat,
-            // 'kecamatan' => $request->kecamatan,
-            // 'kabupaten_id' => $kabupaten_id->id,
-            // 'provinsi' => $request->provinsi,
-            // 'kode_pos' => $request->kode_pos
-        // ]);
+        $alamat = AlamatDetail::create([
+            'alamat' => $request->alamat,
+            'kecamatan' => $request->kecamatan,
+            'kabupaten_id' => $request->kabupaten_id,
+            'provinsi' => $request->provinsi,
+            'kode_pos' => $request->kode_pos
+        ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            // 'alamat_id' => $alamat->id,
+            'alamat_id' => $alamat->id,
             'phone' => $request->phone,
             'role_id' => 3
         ]);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kost;
 use App\Models\Request;
 use App\Models\User;
 
@@ -39,7 +40,8 @@ class RequestController extends Controller
     public function detail($id)
     {
         $request = Request::find($id);
+        $kost = Kost::where('owner_id', '=', $request->user_id)->first();
 
-        return view('admin.detail-request', compact('request'));
+        return view('admin.detail-request', compact('request', 'kost'));
     }
 }

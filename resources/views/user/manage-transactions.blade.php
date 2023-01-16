@@ -23,44 +23,44 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                     <div class="akun-layer">
                         <div class="layer-title">
-                            <h1>Manage Kos</h1>
-                            {{-- If admin, tombol ga ditampilin --}}
-                            <button>Tambah Kos</button>
+                            <h1>Manage Transaction</h1>
                         </div>
                         <table id="datatables">
                             <thead>
                                 <tr>
                                     <td>No</td>
                                     <td>Nama Kos</td>
-                                    <td>Verified</td>
+                                    <td>Tanggal Masuk</td>
+                                    <td>Lama Sewa</td>
+                                    <td>Status</td>
                                     <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($kosts->count() == 0)
-                                    <td colspan="4">There are no Kosts yet</td>
+                                @if ($transactions->count() == 0)
+                                    <td colspan="5">There are no transactions yet</td>
                                 @else
-                                    @foreach ($kosts as $kost)
+                                    @foreach ($transactions as $transaction)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $kost->name }}</td>
-                                            @if ($kost->status == 0)
-                                                <td>Not Verified</td>
-                                            @elseif ($kost->status == 1)
-                                                <td>Verified</td>
-                                            @else
-                                                <td>Declined</td>
-                                            @endif
+                                            <td>{{ $transaction->kost->name }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($transaction->mulai_stay)->format('j F Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($transaction->akhir_stay)->diffInMonths(\Carbon\Carbon::parse($transaction->mulai_stay)) }}
+                                                Bulan</td>
+                                            <td>{{ $transaction->status }}</td>
                                             <td>
-                                                {{-- Buat If --}}
-                                                {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
-                                                {{-- Button verify cuma kalo masih pending --}}
-                                                <a href="{{ route('admin.accept-kost', $kost->id) }}"><button
-                                                        class="true-btn">Verify</button></a>
-                                                <a href="{{ route('admin.detail-kost', $kost->id) }}"><button
-                                                        class="default-btn">Detail</button></a>
-                                                <a href="{{ route('admin.decline-kost', $kost->id) }}"><button
+                                                @if ($transaction->status == 'Unpaid')
+                                                    <form action="/user/pay-transaction" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="transaction_id"
+                                                            value="{{ $transaction->id }}">
+                                                        <input type="file" name="image">
+                                                        <button class="true-btn">Bayar</button></a>
+                                                    </form>
+                                                    <a href="{{ route('user.delete-transaction', $transaction->id ) }}"><button
                                                         class="default-btn">Delete</button></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

@@ -12,24 +12,31 @@ class KostController extends Controller
     {
         $kosts = Kost::orderBy('status', 'ASC')->get();
         
-        return view('admin.kosts', compact('kosts'));
+        return view('admin.manage-kosts', compact('kosts'));
+    }
+
+    public function detailKost($id)
+    {
+        $kost = Kost::find($id);
+
+        return view('admin.kost-detail', compact('kost'));
     }
 
     public function acceptKost($id)
     {
         $kost = Kost::find($id);
-        $kost->status = 2;
+        $kost->status = 1;
         $kost->save();
 
-        return redirect('admin/kosts');
+        return redirect('admin/manage-kosts');
     }
 
     public function declineKost($id)
     {
         $kost = Kost::find($id);
-        $kost->status = 1;
+        $kost->status = 2;
         $kost->save();
 
-        return redirect('admin/kosts');
+        return redirect('admin/manage-kosts');
     }
 }

@@ -30,15 +30,16 @@
                                         <input type="email" placeholder="Email ..." id="form-email" name="email">
                                         {{-- Error Message --}}
                                         @error('email')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-password">Password</label>
-                                        <input type="password" placeholder="Passoword ..." id="form-password" name="password">
+                                        <input type="password" placeholder="Password ..." id="form-password"
+                                            name="password">
                                         {{-- Error Message --}}
                                         @error('password')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
@@ -47,10 +48,11 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-name">Name</label>
                                         {{-- Nama Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Name ..." value="Leo Leo" id="form-name" name="name">
+                                        <input type="text" placeholder="Name ..." id="form-name"
+                                            name="name">
                                         {{-- Error Message --}}
                                         @error('name')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
@@ -59,54 +61,50 @@
                                         <input type="text" placeholder="Phone ..." id="form-phone" name="phone">
                                         {{-- Error Message --}}
                                         @error('phone')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
                                         {{-- Kecamatan Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="kecamatan">
+                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan"
+                                            name="kecamatan">
                                         {{-- Error Message --}}
                                         @error('kecamatan')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
-                                        <label for="form-kota">Kota</label>
-                                        {{-- Kota Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kota ..." id="form-kota" name="kota">
-                                        {{-- Error Message --}}
-                                        @error('kota')
-                                        <span class="text-danger">Ini error message</span>
+                                        <label for="form-kabupaten">Kabupaten</label>
+                                        <select name="kabupaten_id" id="form-kabupaten">
+                                            @foreach ($kabupatens as $kabupaten)
+                                                <option value="{{ $kabupaten->id }}">{{ $kabupaten->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('kabupaten_id')
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
-                                        {{-- Provinsi Akun, pilih value kalau udh ada data --}}
-                                        <select name="provinsi_id" id="form-provinsi">
-                                            <option value="Jakarta">Jakarta</option>
-                                            <option value="Yogyakarta">Yogyakarta</option>
-                                            <option value="Malang">Malang</option>
-                                            <option value="Semarang">Semarang</option>
-                                            <option value="Medan">Medan</option>
-                                            <option value="Surabaya">Surabaya</option>
-                                            <option value="Bandung">Bandung</option>
-                                            <option value="Denpasar">Denpasar</option>
-                                            <option value="Tangerang">Tangerang</option>
-                                            <option value="Palembang">Palembang</option>
+                                        <select name="provinsi" id="form-provinsi">
+                                            <option value="DKI Jakarta">DKI Jakarta</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="Jawa Tengah">Jawa Tengah</option>
+                                            <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                            <option value="Jawa Timur">Jawa Timur</option>
                                         </select>
-                                        {{-- Error Message --}}
-                                        @error('provinsi_id')
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('provinsi')
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
                                         {{-- Kode Pos Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="kode_pos">
+                                        <input type="number" placeholder="Kode Pos ..." id="form-kode-pos" name="kode_pos">
                                         {{-- Error Message --}}
                                         @error('kode_pos')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
@@ -115,7 +113,7 @@
                                         <textarea name="alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
                                         {{-- Error Message --}}
                                         @error('email')
-                                        <span class="text-danger">Ini error message</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">

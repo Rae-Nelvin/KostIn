@@ -33,6 +33,9 @@
                                     <td>Nama Customer</td>
                                     <td>Tanggal Masuk</td>
                                     <td>Lama Sewa</td>
+                                    <td>Status</td>
+                                    <td>Bukti Bayar</td>
+                                    <td>Action</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +48,22 @@
                                             <td>{{ $transaction->kost->name }}</td>
                                             <td>{{ $transaction->user->name }}</td>
                                             <td>{{ \Carbon\Carbon::parse($transaction->mulai_stay)->format('j F Y') }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($transaction->akhir_stay)->diffInMonths(\Carbon\Carbon::parse($transaction->mulai_stay)) }} Bulan</td>
+                                            <td>{{ \Carbon\Carbon::parse($transaction->akhir_stay)->diffInMonths(\Carbon\Carbon::parse($transaction->mulai_stay)) }}
+                                                Bulan</td>
+                                            <td>{{ $transaction->status }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $transaction->path) }}"
+                                                    alt="bukti pembayaran">
+                                            </td>
+                                            <td>
+                                                @if ($transaction->status != 'Paid' && $transaction->status != 'Rejected')
+                                                    <a href="{{ route('owner.accept-transaction', $transaction->id) }}"><button
+                                                            class="true-btn">Accept</button></a>
+                                                    <a
+                                                        href="{{ route('owner.reject-transaction', $transaction->id) }}"></a><button
+                                                        class="default-btn">Reject</button>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif

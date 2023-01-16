@@ -2,59 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use App\Models\AlamatDetail;
+use App\Models\Kabupaten;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
+    public function create()
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $user = User::find(Auth::user()->id);
+        $kabupatens = Kabupaten::get();
+
+        return view('manage-profile', compact('user', 'kabupatens'));
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->user()->fill($request->validated());
+        $user = User::find(Auth::user()->id);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if($request->password)
+        {
+            $user->password = Hash::make($request->password);
         }
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->save();
+        $alamat = AlamatDetail::find($user->alamat_id);
+        $alamat->kecamatan = $request->kecamatan;
+        $alamat->kabupaten_id = $request->kabupaten_id;
+        $alamat->provinsi = $request->provinsi;
+        $alamat->kode_pos = $request->kode_pos;
+        $alamat->alamat = $request->alamat;
+        $alamat->save();
 
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return redirect('manage-profile');
     }
 }

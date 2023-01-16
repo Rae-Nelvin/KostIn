@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Album extends Model
@@ -34,5 +35,15 @@ class Album extends Model
     public function cover(): HasOne
     {
         return $this->hasOne(Picture::class, 'id', 'cover_id');
+    }
+
+    /**
+     * Get all of the pictures for the Album
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pictures(): HasMany
+    {
+        return $this->hasMany(Picture::class, 'album_id', 'id');
     }
 }

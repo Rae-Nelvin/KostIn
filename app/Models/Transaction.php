@@ -39,4 +39,14 @@ class Transaction extends Model
     {
         return $this->hasOne(Kost::class, 'id', 'kost_id');
     }
+
+    /**
+     * Get the bukti_pembayaran associated with the Transaction
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function bukti_pembayaran(): HasOne
+    {
+        return $this->hasOne(Picture::class, 'id', 'bukti_pembayaran');
+    }
 }

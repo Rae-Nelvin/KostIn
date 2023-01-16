@@ -49,7 +49,7 @@
                                                 {{-- Untuk User tampil semua --}}
                                                 <a href="{{ route('owner.image-kost', $kost->id) }}"><button class="default-btn">Edit Image</button></a>
                                                 <a href="{{ route('owner.update-kost', $kost->id) }}"><button class="default-btn">Edit Data</button></a>
-                                                <button class="default-btn">Detail</button>
+                                                <a href="{{ route('owner.detail-kost', $kost->id) }}"><button class="default-btn">Detail</button></a>
                                                 <a href="{{ route('owner.delete-kost', $kost->id) }}"><button class="false-btn">Delete</button></a>
                                             </td>
                                         </tr>

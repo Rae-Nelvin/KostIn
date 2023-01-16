@@ -26,7 +26,7 @@ class Kost extends Model
      */
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id', 'id');
     }
 
     /**
@@ -47,5 +47,15 @@ class Kost extends Model
     public function facilities(): HasMany
     {
         return $this->hasMany(KostFacility::class, 'kost_id', 'id');
+    }
+
+    /**
+     * Get the album associated with the Kost
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function album(): HasOne
+    {
+        return $this->hasOne(Album::class, 'kost_id', 'id');
     }
 }

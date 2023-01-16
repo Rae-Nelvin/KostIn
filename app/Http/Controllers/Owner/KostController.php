@@ -17,6 +17,13 @@ use Illuminate\Http\Request;
 
 class KostController extends Controller
 {
+    public function detail($id)
+    {
+        $kost = Kost::find($id);
+
+        return view('owner.kost-detail', compact('kost'));
+    }
+
     public function create()
     {
         $kabupatens = Kabupaten::all();

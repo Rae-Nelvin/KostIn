@@ -12,9 +12,19 @@
             </ul>
             @auth
                 <!-- With Login -->
-                <!-- <div class="btn-akun">
-                    <a href="#"><i class='bx bxs-user-circle'></i></a>
-                </div> -->
+                @if (Auth::user()->role_id == 1)
+                    <div class="btn-akun">
+                        <a href="{{ route('admin.dashboard') }}"><i class='bx bxs-user-circle'></i></a>
+                    </div>
+                @elseif (Auth::user()->role_id == 2)
+                    <div class="btn-akun">
+                        <a href="{{ route('owner.dashboard') }}"><i class='bx bxs-user-circle'></i></a>
+                    </div>
+                @else
+                    <div class="btn-akun">
+                        <a href="{{ route('user.dashboard') }}"><i class='bx bxs-user-circle'></i></a>
+                    </div>
+                @endif
             @else
                 <!-- Without Login -->
                 <div class="btn-header">

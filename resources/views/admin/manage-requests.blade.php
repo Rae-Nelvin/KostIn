@@ -42,7 +42,7 @@
                                         @foreach ($requests as $request)
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $request->user->name }}</td>
-                                            <td>{{ $request->user->alamat->provinsi->name }}</td>
+                                            <td>{{ $request->user->alamat->kabupaten->name }}</td>
                                             <td>
                                                 <a href="{{ route('admin.request-detail', $request->id ) }}"><button class="default-btn">Detail</button></a>
                                                 <a href="{{ route('admin.accept-request', $request->id ) }}"><button class="true-btn">Accept Request</button></a>

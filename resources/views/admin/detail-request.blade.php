@@ -24,7 +24,7 @@
                     <div class="akun-layer">
                         <div class="layer-title-inside">
                             <div class="back">
-                                <a href="#"><i class='bx bx-arrow-back'></i></a>
+                                <a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a>
                             </div>
                             <h1>Detail Request Kos Owner</h1>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 no-padding">
                                     <div class="owner-detail-img">
-                                        <img src="{{ asset('assets/images/kos.png') }}" alt="Foto Cover Kos">
+                                        <img src="{{ asset('storage/' . $kost->detail->cover->path ) }}" alt="{{ $kost->name }}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-12 no-padding">

@@ -18,33 +18,7 @@
         <div class="container">
             <div class="row with-gap">
                 <div class="col-xl-3 col-lg-3 col-md-12 no-padding">
-                    <div class="akun-nav">
-                        <ul>
-                            {{-- Untuk User --}}
-                            <li><a href="#">Manage Profile</a></li>
-                            <li><a href="#">Manage Transaksi</a></li>
-                            <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
-                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>
-
-                            {{-- Request kos owner hanya bisa dikirim jika data diri lengkap --}}
-                            {{-- Untuk pop up alert notif buat ngasi tau ap yang terjadi kayanya skip dlu, yang penting skema aplikasinya jalan dlu --}}
-
-                            {{-- Untuk Owner --}}
-{{--                            <li><a href="#">Manage Kos</a></li>--}}
-{{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-{{--                            <li><a href="#">Manage Profile</a></li>--}}
-{{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-
-                            {{-- Untuk Admin --}}
-{{--                            <li><a href="#">Manage Request Owner</a></li>--}}
-{{--                            <li><a href="#">Manage Request Kos</a></li>--}}
-{{--                            <li><a href="#">Manage Kos</a></li>--}}
-{{--                            <li><a href="#">Manage Transaksi</a></li>--}}
-{{--                            <li><a href="#">Manage User</a></li>--}}
-{{--                            <li><a href="#">Manage Profile</a></li>--}}
-{{--                            <li><a href="#" class="logout"><i class='bx bxs-user-circle'></i> Logout</a></li>--}}
-                        </ul>
-                    </div>
+                    @include('layouts.sidebar')
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-12 no-padding">
                     <div class="akun-layer">
@@ -52,7 +26,8 @@
                             <h1>Manage Akun</h1>
                         </div>
                         <div class="layer-form">
-                            <form action="" method="">
+                            <form action="/manage-profile" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <h2>User Data</h2>
@@ -60,11 +35,11 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-email">Email</label>
                                         {{-- Email Akun, isi value kalau udh ada data --}}
-                                        <input type="email" placeholder="Email ..." value="leo@binus.ac.id" disabled id="form-email" name="form-email">
+                                        <input type="email" placeholder="Email ..." disabled id="form-email" name="email" value="{{ $user->email }}">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-password">Password</label>
-                                        <input type="password" placeholder="Passoword ..." id="form-password" name="form-password">
+                                        <input type="password" placeholder="Password ..." id="form-password" name="form-password">
                                         <div class="form-desc">
                                             <span>Kosongkan jika tidak ingin mengganti password</span>
                                         </div>
@@ -75,62 +50,74 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-name">Name</label>
                                         {{-- Nama Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Name ..." value="Leo Leo" id="form-name" name="form-name">
+                                        <input type="text" placeholder="Name ..." id="form-name" name="name" value="{{ $user->name }}">
                                         {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-phone">Phone</label>
                                         {{-- Phone Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Phone ..." id="form-phone" name="form-phone">
+                                        <input type="text" placeholder="Phone ..." id="form-phone" name="phone" value="{{ $user->phone }}">
                                         {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('phone')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kecamatan">Kecamatan</label>
                                         {{-- Kecamatan Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="form-kecamatan">
+                                        <input type="text" placeholder="Kecamatan ..." id="form-kecamatan" name="kecamatan" value="{{ $user->alamat->kecamatan }}">
                                         {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('kecamatan')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
-                                        <label for="form-kota">Kota</label>
-                                        {{-- Kota Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kota ..." id="form-kota" name="form-kota">
-                                        {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        <label for="form-kabupaten">Kabupaten</label>
+                                        <select name="kabupaten_id" id="form-kabupaten">
+                                            <option value="{{ $user->alamat->kabupaten->id }}" selected>{{ $user->alamat->kabupaten->name }}</option>
+                                            @foreach ($kabupatens as $kabupaten)
+                                                <option value="{{ $kabupaten->id }}">{{ $kabupaten->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('kabupaten_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-provinsi">Provinsi</label>
-                                        {{-- Provinsi Akun, pilih value kalau udh ada data --}}
-                                        <select name="form-provinsi" id="form-provinsi">
-                                            <option value="Jakarta">Jakarta</option>
-                                            <option value="Yogyakarta">Yogyakarta</option>
-                                            <option value="Malang">Malang</option>
-                                            <option value="Semarang">Semarang</option>
-                                            <option value="Medan">Medan</option>
-                                            <option value="Surabaya">Surabaya</option>
-                                            <option value="Bandung">Bandung</option>
-                                            <option value="Denpasar">Denpasar</option>
-                                            <option value="Tangerang">Tangerang</option>
-                                            <option value="Palembang">Palembang</option>
+                                        <select name="provinsi" id="form-provinsi">
+                                            <option value="{{ $user->alamat->provinsi }}" selected>{{ $user->alamat->provinsi }}</option>
+                                            <option value="DKI Jakarta">DKI Jakarta</option>
+                                            <option value="Jawa Barat">Jawa Barat</option>
+                                            <option value="Jawa Tengah">Jawa Tengah</option>
+                                            <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                            <option value="Jawa Timur">Jawa Timur</option>
                                         </select>
-                                        {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('provinsi')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-kode-pos">Kode Pos</label>
                                         {{-- Kode Pos Akun, isi value kalau udh ada data --}}
-                                        <input type="text" placeholder="Kode Pos ..." id="form-kode-pos" name="form-kode-pos">
+                                        <input type="number" placeholder="Kode Pos ..." id="form-kode-pos" name="kode_pos" value="{{ $user->alamat->kode_pos }}">
                                         {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('kode_pos')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <label for="form-detail-alamat">Detail Alamat</label>
                                         {{-- Detail Alamat Akun, isi value kalau udh ada data --}}
-                                        <textarea name="form-detail-alamat" id="form-detail-alamat" placeholder="Detail Alamat ..."></textarea>
+                                        <input type="hidden" name="alamat" value="{{ $user->alamat->alamat }}">
+                                        <textarea name="alamat" id="form-detail-alamat" placeholder="Detail Alamat ...">{{ $user->alamat->alamat }}</textarea>
                                         {{-- Error Message --}}
-                                        <span class="text-danger">Ini error message</span>
+                                        @error('alamat')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 no-padding">
                                         <div class="form-button">

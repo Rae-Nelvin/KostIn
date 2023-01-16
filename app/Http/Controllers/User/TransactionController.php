@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    public function create($id)
+    public function index()
     {
-        $transactions = Kost::find($id);
+        $transactions = Transaction::where('user_id', '=', Auth::user()->id)->get();
 
-        return view('user.cart', compact('kost'));
+        return view('user.manage-transactions', compact('transactions'));
     }
 
     public function store(Request $request)
@@ -25,14 +25,16 @@ class TransactionController extends Controller
         foreach ($transactions as $transaction) {
             if($transaction->status == 'Unpaid')
             {
-                return redirect('user/dashboard')->with('Error', 'You have upstanding transaction!');
+                return redirect('user/manage-transactions')->with('Error', 'You have upstanding transaction!');
             }
         }
 
         $request->validate([
             'mulai_stay' => ['required', 'date'],
-            'akhir_stay' => ['requuired', 'date'],
+            'lama_sewa' => ['required'],
         ]);
+
+        $akhir_stay = Carbon::parse($request->mulai_stay)->addMonth($request->lama_sewa);
 
         $kost = Kost::find($request->kost_id);
 
@@ -41,11 +43,11 @@ class TransactionController extends Controller
             'kost_id' => $kost->id,
             'status' => 'Unpaid',
             'mulai_stay' => Carbon::make($request->mulai_stay),
-            'akhir_stay' => Carbon::make($request->akhir_stay),
+            'akhir_stay' => Carbon::make($akhir_stay),
             'total_price' => $kost->price,
         ]);
 
-        return redirect('user/dashboard');
+        return redirect('user/manage-transactions');
     }
 
     public function submitBuktiBayar(Request $request)
@@ -55,15 +57,15 @@ class TransactionController extends Controller
         $imagePath = $request->file('image')->store('/public/images/transactions/' . Auth::user()->name . '/kost/' . $kost->name );
         $imagePath = str_replace('public/', '', $imagePath);
 
-        $cover = Picture::create([
+        $picture = Picture::create([
             'path' => $imagePath
         ]);
 
         $transaction->status = 'Pending';
-        $transaction->bukti_pembayaran = $cover->id;
+        $transaction->bukti_pembayaran = $picture->id;
         $transaction->save();
 
-        return redirect('user/dashboard');
+        return redirect('user/manage-transactions');
     }
 
     public function delete($id)
@@ -71,6 +73,6 @@ class TransactionController extends Controller
         $transaction = Transaction::find($id);
         $transaction->delete();
         
-        return redirect('user/dashboard');
+        return redirect('user/manage-transactions');
     }
 }
