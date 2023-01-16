@@ -279,11 +279,12 @@
 }
 
 .kos-detail-text {
-    margin-top: 1rem;
+    /*margin-top: 1rem;*/
 }
 
 .kos-detail-text h1 {
-    font-size: 2.5em;
+    font-size: 2em;
+    margin-bottom: 1rem;
 }
 
 .kos-detail-text h1 span {
@@ -292,11 +293,16 @@
 
 .kos-detail-text h2 {
     font-size: 2em;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .kos-detail-text p {
     margin-bottom: 1rem;
+}
+
+.kos-detail-img img {
+    height: 300px;
+    object-fit: cover;
 }
 
 .kos-detail-kamar-text {
@@ -362,6 +368,8 @@
 
 .layer-image img {
     margin: .5rem 0;
+    height: 200px;
+    object-fit: cover;
 }
 
 .mt-1 {
