@@ -16,7 +16,6 @@
                 <li><a href="{{ route('owner.manage-transactions') }}">Manage Transaksi</a></li>
             @else
                 <li><a href="#">Manage Transaksi</a></li>
-                <li><a href="#" class="kos-owner">Jadi Kos Owner</a></li>
             @endif
             <li><a href="#">Manage Profile</a></li>
             <li>

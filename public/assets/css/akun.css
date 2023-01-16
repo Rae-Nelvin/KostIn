@@ -47,17 +47,16 @@
 }
 
 .akun-nav ul li button.logout {
-    color: #ffffff;
-    border: 0;
-    /* text-align: center; */
-    font-weight: bold;
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: #dc3545;
     margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    font-size: 1.25em;
-    background: transparent;
+    border: 1px solid #dc3545;
+    text-align: center;
+    font-weight: bold;
+    padding: .75rem 0;
+    border-radius: .5rem;
 }
 
 .akun-layer {
@@ -99,6 +98,16 @@
     background-color: var(--secondary-color);
     border: 0;
     color: #fff;
+}
+
+#datatables a.default-btn {
+    padding: .5rem .75em;
+    font-size: .75em;
+    border-radius: .5rem;
+    background-color: var(--secondary-color);
+    border: 0;
+    color: #fff;
+    text-decoration: none;
 }
 
 #datatables button.true-btn {
@@ -364,4 +373,42 @@
 
 .value-card span {
     color: #666666;
+}
+
+.layer-owner {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.layer-owner h2 {
+    font-weight: normal;
+}
+
+.layer-owner i {
+    font-size: 5em;
+    margin-right: 2rem;
+}
+
+.layer-owner a {
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    border-radius: .5rem;
+    border: 2px solid #fff;
+    background-color: #fff;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-top: .5rem;
+    font-weight: bold;
+}
+
+.layer-fav {
+    margin-top: 2rem;
+}
+
+.layer-fav h2 {
+    margin-bottom: 1rem;
 }

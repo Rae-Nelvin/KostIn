@@ -38,6 +38,10 @@ Route::get('/area', function () {
     return view('area');
 });
 
+Route::get('/area-kos', function () {
+    return view('area-kos');
+});
+
 Route::get('/kampus', function () {
     return view('kampus');
 });
