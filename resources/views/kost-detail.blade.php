@@ -81,7 +81,7 @@
                             </form>
                         @endif
                     @else
-                        <a href="{{ route('login') }}"><button>Ajukan Sewa</button></a>
+                        <a href="{{ route('login') }}"><button class="detail-btn">Ajukan Sewa</button></a>
                     @endauth
                 </div>
             </div>
@@ -96,7 +96,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    <div class="main-carousel" data-flickity='{ "wrapAround": true, "pageDots": false }'>
+                    <div class="main-carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "cellAlign" : "left" }'>
                         {{-- Forloop album / image tambahan --}}
                         @foreach ($kost->album->pictures as $picture)
                             <div class="carousel-cell">
@@ -151,14 +151,14 @@
     <section class="bg-deskripsi">
         <div class="container">
             <div class="row">
-                <div class="col-xl-10 col-lg-10 col-md-12">
+                <div class="col-xl-9 col-lg-9 col-md-12">
                     <h2>Keterangan Deskripsi Kos</h2>
                     <p>
                         {{-- Detail kos --}}
                         {{ $kost->detail->description }}
                     </p>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-12">
+                <div class="col-xl-3 col-lg-3 col-md-12">
                     <div class="pemilik-kos">
                         <i class='bx bxs-user-circle'></i>
                         <div>

@@ -65,7 +65,7 @@
                                 <div class="desc-title">
                                     <div>
                                         {{-- Nama Kos --}}
-                                        <h2>{{ $kost->name }}</h2>
+                                        <h2><a href="{{ route('kost-detail', $kost->id) }}">{{ $kost->name }}</a></h2>
                                         {{-- Kecamatan dan Kota Kos --}}
                                         <p>{{ $kost->detail->alamat->kecamatan }},
                                             {{ $kost->detail->alamat->kabupaten->name }}</p>

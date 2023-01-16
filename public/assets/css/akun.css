@@ -110,7 +110,23 @@
     text-decoration: none;
 }
 
+#datatables tr td a, #datatables tr td button {
+    margin-bottom: .25rem;
+    display: inline-block;
+}
+
 #datatables button.true-btn {
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    background-color: #198754;
+    border: 0;
+    color: #fff;
+}
+
+.modal button.true-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
     padding: .5rem 1rem;
     border-radius: .5rem;
     background-color: #198754;
@@ -411,4 +427,8 @@
 
 .layer-fav h2 {
     margin-bottom: 1rem;
+}
+
+img.bukti-pembayaran {
+    width: 75px;
 }

@@ -116,6 +116,11 @@ form {
     font-size: 2em;
 }
 
+.desc-title h2 a {
+    color: #000;
+    text-decoration: none;
+}
+
 .desc-title p {
     color: #666;
 }

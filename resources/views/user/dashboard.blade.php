@@ -44,14 +44,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>9 Square VIP</td>
-                                    <td>Jakarta</td>
-                                    <td>
-                                        <a href="#" class="default-btn">Ke Halaman Kos</a>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>

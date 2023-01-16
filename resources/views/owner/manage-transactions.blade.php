@@ -53,7 +53,7 @@
                                             <td>{{ $transaction->status }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $transaction->path) }}"
-                                                    alt="bukti pembayaran">
+                                                    alt="bukti pembayaran" class="bukti-pembayaran">
                                             </td>
                                             <td>
                                                 @if ($transaction->status != 'Paid' && $transaction->status != 'Rejected')

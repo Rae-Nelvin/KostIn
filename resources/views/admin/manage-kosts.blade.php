@@ -55,8 +55,10 @@
                                                 {{-- Buat If --}}
                                                 {{-- Untuk Admin cuma bisa tampil Detail & Delete --}}
                                                 {{-- Button verify cuma kalo masih pending --}}
-                                                <a href="{{ route('admin.accept-kost', $kost->id) }}"><button
+                                                @if ($kost->status == 0)
+                                                    <a href="{{ route('admin.accept-kost', $kost->id) }}"><button
                                                         class="true-btn">Verify</button></a>
+                                                @endif
                                                 <a href="{{ route('admin.detail-kost', $kost->id) }}"><button
                                                         class="default-btn">Detail</button></a>
                                                 <a href="{{ route('admin.decline-kost', $kost->id) }}"><button

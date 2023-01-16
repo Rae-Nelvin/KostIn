@@ -42,7 +42,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 no-padding">
-                                        <button class="accept-btn">Add Image</button>
+                                        <button class="accept-btn mt-1">Add Image</button>
                                     </div>
                                 </div>
                             </form>

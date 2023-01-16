@@ -219,6 +219,13 @@ form button {
     display: block;
 }
 
+.pemilik-kos i {
+    display: block;
+    text-align: center;
+    font-size: 5em;
+    color: #666;
+}
+
 /* Rekomendasi */
 .bg-rekomendasi {
     padding: 2rem 0;
@@ -305,4 +312,16 @@ form button {
     font-size: 2em;
     font-weight: bold;
     color: #000 !important;
+}
+
+.detail-btn {
+    padding: .5rem 0;
+    width: 100%;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid var(--secondary-color);
+    font-size: 1.25em;
 }
