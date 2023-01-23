@@ -24,7 +24,7 @@
                     <div class="akun-layer">
                         <div class="layer-title-inside">
                             <div class="back">
-                                <a href="{{ route('welcome') }}"><i class='bx bx-arrow-back'></i></a>
+                                <a href="{{ route('admin.manage-kosts') }}"><i class='bx bx-arrow-back'></i></a>
                             </div>
                             <h1>Detail Kos</h1>
                         </div>
