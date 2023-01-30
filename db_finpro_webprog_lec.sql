@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2023 at 10:12 AM
+-- Generation Time: Jan 16, 2023 at 11:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -224,7 +224,7 @@ CREATE TABLE `kost_details` (
 --
 
 INSERT INTO `kost_details` (`id`, `kost_id`, `description`, `tipe_kost`, `jumlah_kamar`, `jumlah_penghuni`, `ukuran_kamar`, `jatuh_tempo`, `alamat_id`, `favourites`, `cover_id`) VALUES
-(1, 1, 'Kost Rumah Antene Kebayoran Baru Jakarta Selatan (Campur)', 'Campur', 20, 0, '4 x 5 M', 'Tanggal 5', 3, 0, 7),
+(1, 1, 'Kost Rumah Antene Kebayoran Baru Jakarta Selatan (Campur)', 'Campur', 20, 20, '4 x 5 M', 'Tanggal 5', 3, 0, 7),
 (2, 2, 'KOST EXECUTIVE JAGAKARSA PASO CILANDAK JAKARTA SELATAN (putra)', 'Male', 15, 0, '4 x 5 M', 'Tanggal 5', 5, 0, 13),
 (3, 3, 'Kingfisher Residence Benhil(Campur)', 'Campur', 10, 0, '4 x 5 M', 'Tanggal 5', 6, 0, 19),
 (4, 4, 'CORNERO HOUSE(Campur)', 'Campur', 12, 0, '4 x 5 M', 'Tanggal 5', 7, 0, 25),
@@ -358,9 +358,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2023_01_10_092407_create_kost_facilities_table', 1),
 (15, '2023_01_10_092454_create_kost_details_table', 1),
 (16, '2023_01_10_092702_create_kampuses_table', 1),
-(17, '2023_01_10_092757_create_transactions_table', 1),
 (18, '2023_01_10_101934_add_relations_to_albums_table', 1),
-(19, '2023_01_13_121913_create_requests_table', 1);
+(19, '2023_01_13_121913_create_requests_table', 1),
+(20, '2023_01_10_092757_create_transactions_table', 2);
 
 -- --------------------------------------------------------
 
@@ -461,7 +461,8 @@ INSERT INTO `pictures` (`id`, `album_id`, `path`, `created_at`, `updated_at`) VA
 (47, 9, 'images/kost/Kos Florence Tipe A/pictures/Y5Z3Ea1ch0v5UA8qJOgey1JFeoRIdAffOOfpmQmL.jpg', '2023-01-15 05:48:17', '2023-01-15 05:48:17'),
 (48, 9, 'images/kost/Kos Florence Tipe A/pictures/fSlKgSn0sw09Fi1sQpObMvvMHkuiM2hTg4dqhKbH.jpg', '2023-01-15 05:48:20', '2023-01-15 05:48:20'),
 (49, 9, 'images/kost/Kos Florence Tipe A/pictures/dNhupIp2Loz4wh9asWWIhVKJcsdrMniyLncU6rAy.jpg', '2023-01-15 05:48:22', '2023-01-15 05:48:22'),
-(50, NULL, 'images/transactions/User 1/kost/Kost Rumah Antene Kebayoran Baru Jakarta Selatan/412tCZH3JmCujnj3WNuvi0tizouWM4ocuDOXubDn.png', '2023-01-16 01:54:06', '2023-01-16 01:54:06');
+(50, NULL, 'images/transactions/User 1/kost/Kost Rumah Antene Kebayoran Baru Jakarta Selatan/412tCZH3JmCujnj3WNuvi0tizouWM4ocuDOXubDn.png', '2023-01-16 01:54:06', '2023-01-16 01:54:06'),
+(52, NULL, 'images/transactions/User 1/kost/KOST EXECUTIVE JAGAKARSA PASO CILANDAK JAKARTA SELATAN/Mhl2rS9Dun2Y0wXKnJAjAUgsgoOFKxqxNCCa5cNc.jpg', '2023-01-16 02:19:22', '2023-01-16 02:19:22');
 
 -- --------------------------------------------------------
 
@@ -503,6 +504,32 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'Admin'),
 (2, 'Owner'),
 (3, 'User');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `kost_id` bigint(20) UNSIGNED NOT NULL,
+  `status` enum('Unpaid','Pending','Paid','Rejected') NOT NULL DEFAULT 'Pending',
+  `mulai_stay` date NOT NULL,
+  `akhir_stay` date NOT NULL,
+  `total_price` bigint(20) NOT NULL,
+  `bukti_pembayaran` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `user_id`, `kost_id`, `status`, `mulai_stay`, `akhir_stay`, `total_price`, `bukti_pembayaran`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, 'Paid', '2023-01-16', '2023-04-16', 2200000, 52, '2023-01-16 02:19:11', '2023-01-16 02:34:28');
 
 -- --------------------------------------------------------
 
@@ -648,6 +675,15 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `transactions_user_id_foreign` (`user_id`),
+  ADD KEY `transactions_kost_id_foreign` (`kost_id`),
+  ADD KEY `transactions_bukti_pembayaran_foreign` (`bukti_pembayaran`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -718,7 +754,7 @@ ALTER TABLE `kost_facilities`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -730,7 +766,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pictures`
 --
 ALTER TABLE `pictures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `requests`
@@ -743,6 +779,12 @@ ALTER TABLE `requests`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -812,6 +854,14 @@ ALTER TABLE `pictures`
 --
 ALTER TABLE `requests`
   ADD CONSTRAINT `requests_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_bukti_pembayaran_foreign` FOREIGN KEY (`bukti_pembayaran`) REFERENCES `pictures` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transactions_kost_id_foreign` FOREIGN KEY (`kost_id`) REFERENCES `kosts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transactions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`

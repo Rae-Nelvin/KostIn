@@ -50,9 +50,41 @@
                                             <td>{{ $transaction->status }}</td>
                                             <td>
                                                 @if ($transaction->status == 'Unpaid')
-                                                    <button class="default-btn" data-micromodal-trigger="modal-1">Payment</button>
-                                                    <a href="{{ route('user.delete-transaction', $transaction->id ) }}"><button
-                                                        class="default-btn">Delete</button></a>
+                                                    <button class="default-btn"
+                                                        data-micromodal-trigger="model-{{ $transaction->id }}">Payment</button>
+                                                    <div class="modal micromodal-slide" id="model-{{ $transaction->id }}" aria-hidden="true">
+                                                        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                                                            <div class="modal__container" role="dialog" aria-modal="true"
+                                                                aria-labelledby="modal-1-title">
+                                                                <header class="modal__header">
+                                                                    <h2 class="modal__title" id="modal-1-title">
+                                                                        {{-- Judul Modal --}}
+                                                                        Upload Bukti Pembayaran
+                                                                    </h2>
+                                                                    <button class="modal__close" aria-label="Close modal"
+                                                                        data-micromodal-close></button>
+                                                                </header>
+                                                                <main class="modal__content" id="modal-1-content">
+                                                                    {{-- Isi Modal --}}
+                                                                    <form action="/user/pay-transaction" method="POST"
+                                                                        enctype="multipart/form-data">
+                                                                        @csrf
+                                                                        <input type="hidden" name="transaction_id"
+                                                                            value="{{ $transaction->id }}">
+                                                                        <input type="file" name="image">
+                                                                        <button class="true-btn">Bayar</button></a>
+                                                                    </form>
+                                                                </main>
+                                                                {{-- Footer Modal (Buat Button) --}}
+                                                                {{--                <footer class="modal__footer"> --}}
+                                                                {{--                    <button class="modal__btn modal__btn-primary">Continue</button> --}}
+                                                                {{--                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button> --}}
+                                                                {{--                </footer> --}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="{{ route('user.delete-transaction', $transaction->id) }}"><button
+                                                            class="default-btn">Delete</button></a>
                                                 @endif
                                             </td>
                                         </tr>
@@ -68,35 +100,7 @@
 @endsection
 
 @section('additionalScript')
-    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                <header class="modal__header">
-                    <h2 class="modal__title" id="modal-1-title">
-                        {{-- Judul Modal --}}
-                        Upload Bukti Pembayaran
-                    </h2>
-                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                </header>
-                <main class="modal__content" id="modal-1-content">
-                    {{-- Isi Modal --}}
-                    <form action="/user/pay-transaction" method="POST"
-                          enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="transaction_id"
-                               value="{{ $transaction->id }}">
-                        <input type="file" name="image">
-                        <button class="true-btn">Bayar</button></a>
-                    </form>
-                </main>
-                {{-- Footer Modal (Buat Button) --}}
-{{--                <footer class="modal__footer">--}}
-{{--                    <button class="modal__btn modal__btn-primary">Continue</button>--}}
-{{--                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>--}}
-{{--                </footer>--}}
-            </div>
-        </div>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
     <script>

@@ -13,7 +13,7 @@ class GuestController extends Controller
 {
     public function index()
     {
-        $kosts = Kost::orderBy('id', 'ASC')->take(4)->get();
+        $kosts = Kost::where('status', '=', 1)->orderBy('id', 'ASC')->take(4)->get();
         $kabupatens = Kabupaten::take(4)->get();
 
         return view('welcome', compact('kosts', 'kabupatens'));

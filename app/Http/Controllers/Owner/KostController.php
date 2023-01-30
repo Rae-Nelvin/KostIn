@@ -105,58 +105,69 @@ class KostController extends Controller
             'provinsi' => $request->provinsi,
             'kode_pos' => $request->kode_pos
         ]);
-        $alamat->save();
-
         $kost = Kost::where('id', '=', $request->kost_id)->update([
             'name' => $request->name,
             'owner_id' => Auth::user()->id,
             'price' => $request->price,
         ]);
-        $kost->save();
 
         $imagePath = $request->file('image')->store('/public/images/kost/' . $request->name . '/cover');
         $imagePath = str_replace('public/', '', $imagePath);
         $cover = Picture::create([
             'path' => $imagePath
         ]);
-        $album = Album::where('kost_id', '=', $kost->id)->update([
+        $album = Album::where('kost_id', '=', $request->kost_id)->update([
             'cover_id' => $cover->id
         ]);
-        $album->save();
 
-        KostDetail::where('kost_id', '=', $kost->id)->update([
-            'kost_id' => $kost->id,
+        KostDetail::where('kost_id', '=', $request->kost_id)->update([
+            'kost_id' => $request->kost_id,
             'description' => $request->description,
             'tipe_kost' => $request->tipe_kost,
             'jumlah_kamar' => $request->jumlah_kamar,
             'jumlah_penghuni' => $request->jumlah_penghuni,
             'ukuran_kamar' => $request->ukuran_kamar,
             'jatuh_tempo' => $request->jatuh_tempo,
-            'alamat_id' => $alamat->id,
+            'alamat_id' => $request->alamat_id,
             'favourites' => 0,
             'cover_id' => $cover->id
         ]);
 
-        $old_facilities = KostFacility::where('kost_id', '=', $kost->id)->get();
-        $facilities = $request->facility;
-        for($i = 0; $i < $facilities->count(); $i++)
+        $old_facilities = KostFacility::where('kost_id', '=', $request->kost_id)->get();
+        foreach($old_facilities as $facility)
         {
-            for($j = 0; $j < $i ;$j++)
-            {
-                if($old_facilities[$j] != $facilities[$i])
-                {
-                    $delete_facilities = KostFacility::find($old_facilities[$j]);
-                    $delete_facilities->delete();
-                }
-                if($j+1 == $i)
-                {
-                    KostFacility::create([
-                        'kost_id' => $kost->id,
-                        'facility_id' => $facilities[$i]
-                    ]);
-                }
-            }
+            $facility->delete();
         }
+        $facilities = $request->facility_id;
+        foreach($facilities as $facility)
+        {
+            KostFacility::create([
+                'kost_id' => $request->kost_id,
+                'facility_id' => $facility
+            ]);
+        }
+        // $i = 0;
+        // foreach($facilities as $facility)
+        // {
+        //     for($j = 0; $j < $i ;$j++)
+        //     {
+        //         if($old_facilities[$j] != $facility)
+        //         {
+        //             $delete_facilities = KostFacility::where('id', '=', $old_facilities[$j])
+        //             ->update([
+        //                 'facility_id' => $facility
+        //             ]);
+        //         }
+        //         if($j+1 == $i)
+        //         {
+        //             KostFacility::create([
+        //                 'kost_id' => $request->kost_id,
+        //                 'facility_id' => $facility
+        //             ]);
+        //         }
+        //     }
+        //     $i++;
+        // }
 
         return redirect('owner/dashboard');
     }

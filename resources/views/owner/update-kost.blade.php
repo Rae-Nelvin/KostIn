@@ -31,6 +31,8 @@
                         <div class="layer-form">
                             <form action="/owner/update-kost" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="kost_id" value="{{ $kost->id }}">
+                                <input type="hidden" name="alamat_id" value="{{ $kost->detail->alamat->id }}">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 no-padding">
                                         <label for="form-nama">Nama Kos</label>
