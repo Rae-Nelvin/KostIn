@@ -24,7 +24,7 @@
                     <div class="akun-layer">
                         <div class="layer-title-inside">
                             <div class="back">
-                                <a href="#"><i class='bx bx-arrow-back'></i></a>
+                                <a href="{{ route('owner.dashboard') }}"><i class='bx bx-arrow-back'></i></a>
                             </div>
                             <h1>Edit Image</h1>
                         </div>

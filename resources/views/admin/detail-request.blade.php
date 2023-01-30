@@ -24,7 +24,7 @@
                     <div class="akun-layer">
                         <div class="layer-title-inside">
                             <div class="back">
-                                <a href="{{ route('admin.dashboard') }}"><i class='bx bx-arrow-back'></i></a>
+                                <a href="{{ route('admin.manage-requests') }}"><i class='bx bx-arrow-back'></i></a>
                             </div>
                             <h1>Detail Request Kos Owner</h1>
                         </div>
